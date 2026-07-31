@@ -64,44 +64,13 @@
   @keyframes navQaPulse{
     0%, 100%{opacity:1;} 50%{opacity:0.35;}
   }
+  @media (max-width:720px){ .topnav{display:none;} }
   .nav-cta{
     background:var(--mint); color:#06251E; font-weight:700; font-size:13px;
     padding:9px 18px; border-radius:100px; text-decoration:none; white-space:nowrap;
     transition:transform .18s ease, box-shadow .18s ease;
   }
   .nav-cta:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,212,170,0.35);}
-
-  /* ---------- mobile nav toggle ---------- */
-  .nav-toggle{
-    display:none; width:36px; height:36px; border-radius:8px;
-    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
-    position:relative; cursor:pointer; flex-shrink:0;
-  }
-  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
-    content:""; position:absolute; left:8px; width:20px; height:2px;
-    background:#E7ECEF; border-radius:2px; transition:transform .2s ease, opacity .2s ease;
-  }
-  .nav-toggle span{top:17px;}
-  .nav-toggle span::before{top:-6px;}
-  .nav-toggle span::after{top:6px;}
-  .nav-toggle.open span{background:transparent;}
-  .nav-toggle.open span::before{transform:translateY(6px) rotate(45deg);}
-  .nav-toggle.open span::after{transform:translateY(-6px) rotate(-45deg);}
-
-  @media (max-width:720px){
-    .nav-toggle{display:block;}
-    .topnav{
-      display:flex; flex-direction:column; align-items:flex-start; gap:0;
-      position:fixed; top:60px; left:0; right:0;
-      background:#0F1923; border-bottom:1px solid var(--navy-line);
-      max-height:0; overflow:hidden; padding:0 28px;
-      transition:max-height .28s ease, padding .28s ease;
-    }
-    .topnav.open{ max-height:400px; padding:14px 28px 20px; }
-    .topnav a{ padding:10px 0; width:100%; border-bottom:1px solid var(--navy-line); font-size:14px; }
-    .topnav a:last-child{ border-bottom:none; }
-    .nav-cta{ padding:8px 14px; font-size:12px; }
-  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -453,20 +422,6 @@
   .register-band h3{color:#fff; font-size:22px; font-weight:900; margin:6px 0 8px; max-width:480px;}
   .register-band p{color:#B9C2CA; font-size:13.5px;}
   .register-band .hero-cta{margin-top:0; flex-shrink:0;}
-  .register-band .cta-group{display:flex; gap:12px; flex-wrap:wrap; flex-shrink:0;}
-  .register-band .qa-cta{
-    display:inline-flex; align-items:center; gap:8px;
-    background:rgba(255,107,107,0.12); color:var(--coral);
-    border:1px solid rgba(255,107,107,0.4);
-    font-weight:800; font-size:15px; padding:15px 26px; border-radius:100px;
-    text-decoration:none; transition:transform .18s ease, background .18s ease;
-  }
-  .register-band .qa-cta::before{
-    content:""; width:7px; height:7px; border-radius:50%;
-    background:var(--coral); display:inline-block;
-    animation:navQaPulse 1.6s ease-in-out infinite;
-  }
-  .register-band .qa-cta:hover{transform:translateY(-2px); background:rgba(255,107,107,0.2);}
 
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:none;}
@@ -482,7 +437,7 @@
 <div class="topbar">
   <div class="wrap">
     <div class="brand"><span class="dot"></span>2026 경기도 창업교육 선도교원 연수</div>
-    <nav class="topnav" id="topnav">
+    <nav class="topnav">
       <a href="#purpose">참여혜택</a>
       <a href="#overview">운영개요</a>
       <a href="#modules">12개 모듈</a>
@@ -492,7 +447,6 @@
       <a href="https://docs.google.com/spreadsheets/d/1etiv1zsAQ-wRUWsNniR2JmF003YgivbcsFHvQuXI9CQ/edit?usp=sharing" target="_blank" rel="noopener" class="nav-qa">실시간 Q&amp;A</a>
     </nav>
     <a class="nav-cta" href="https://forms.gle/CF2a8VEmbae3kibF7" target="_blank" rel="noopener">사전설문 제출하기</a>
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="topnav"><span></span></button>
   </div>
 </div>
 
@@ -595,7 +549,7 @@
           <div class="ov-row"><div class="ov-label">인정 시수</div><div class="ov-value">총 <b>32시간</b> (대면 14시간 + 비대면 18시간)</div></div>
           <div class="ov-row"><div class="ov-label">운영 구성</div><div class="ov-value">대면 2회(7시간×2, 첫날·마지막날) + 비대면 6회(3시간×6)</div></div>
           <div class="ov-row"><div class="ov-label">운영 기간</div><div class="ov-value"><b>2026. 8. 4.(화) ~ 8. 13.(목)</b>, 2주간</div></div>
-          <div class="ov-row"><div class="ov-label">대면 장소</div><div class="ov-value">코트야드 메리어트 판교 · 한국엔젤투자협회 팁스타운S6(역삼동)</div></div>
+          <div class="ov-row"><div class="ov-label">대면 장소</div><div class="ov-value">한국엔젤투자협회 팁스타운S6(역삼동) · 코트야드 메리어트 판교</div></div>
           <div class="ov-row"><div class="ov-label">AI 도구</div><div class="ov-value">Zoom · 구글 워크스페이스 · Claude · ChatGPT · Gemini · Canva · Gamma · Stitch · 나노바나나</div></div>
           <div class="ov-row"><div class="ov-label">멘토링 운영</div><div class="ov-value">실시간 진행 + 전 회차 녹화 → 미참석자도 시청 가능</div></div>
           <div class="ov-row"><div class="ov-label">이수 기준</div><div class="ov-value">대면·비대면 32시간 중 <b>80% 이상 출석</b> + 12개 모듈 산출물 제출</div></div>
@@ -637,7 +591,7 @@
               <td><span class="tt-day">DAY 1</span>8.4(화)</td>
               <td>10:00–18:00 <span class="tt-h">7h</span></td>
               <td>모듈 1·2·3·4 <span class="tt-sub">온보딩·팀캔버스·아이디어발굴·심층탐색</span></td>
-              <td><span class="day-mode onsite">대면</span> 코트야드메리어트판교</td>
+              <td><span class="day-mode onsite">대면</span> 한국엔젤투자협회 팁스타운S6</td>
             </tr>
             <tr>
               <td><span class="tt-day">DAY 2</span>8.5(수)</td>
@@ -679,7 +633,7 @@
               <td><span class="tt-day">DAY 8</span>8.13(목)</td>
               <td>10:00–18:00 <span class="tt-h">7h</span></td>
               <td>모듈 11·12 + 최종발표 <span class="tt-sub">MVP제작·피치덱&투자리뷰</span></td>
-              <td><span class="day-mode onsite">대면</span> 한국엔젤투자협회 팁스타운S6</td>
+              <td><span class="day-mode onsite">대면</span> 코트야드메리어트판교</td>
             </tr>
           </tbody>
         </table>
@@ -698,7 +652,7 @@
             <div class="day-num mono">DAY 1</div>
             <div class="day-date">8.4(화) 10:00–18:00</div>
             <span class="day-mode onsite">대면 · 7h</span>
-            <div class="day-place">코트야드 메리어트 판교</div>
+            <div class="day-place">한국엔젤투자협회 팁스타운S6(역삼동)</div>
           </div>
           <div class="modules">
             <div class="module-card">
@@ -857,7 +811,7 @@
             <div class="day-num mono">DAY 8</div>
             <div class="day-date">8.13(목) 10:00–18:00</div>
             <span class="day-mode onsite">대면 · 7h</span>
-            <div class="day-place">한국엔젤투자협회 팁스타운S6(역삼동)</div>
+            <div class="day-place">코트야드 메리어트 판교</div>
           </div>
           <div class="modules">
             <div class="module-card">
@@ -980,14 +934,11 @@
 <section id="register-cta">
   <div class="wrap register-band">
     <div>
-      <div class="kicker" style="color:var(--gold);">Apply Now</div>
-      <h3>2026 경기도 창업교육 선도교원 양성과정, 지금 신청하세요</h3>
-      <p>참가 인원 30명 · 5개 팀 선착순 편성. 신청서 제출 후 순차 안내드립니다.</p>
+      <div class="kicker" style="color:var(--gold);">Pre-Survey</div>
+      <h3>2026 경기도 창업교육 선도교원 양성과정, 사전설문에 참여해 주세요</h3>
+      <p>참가 인원 30명 · 5개 팀 선착순 편성. 사전설문 제출 후 순차 안내드립니다.</p>
     </div>
-    <div class="cta-group">
-      <a class="hero-cta" href="https://forms.gle/CF2a8VEmbae3kibF7" target="_blank" rel="noopener">사전설문 제출하기 <span>→</span></a>
-      <a class="qa-cta" href="https://docs.google.com/spreadsheets/d/1etiv1zsAQ-wRUWsNniR2JmF003YgivbcsFHvQuXI9CQ/edit?usp=sharing" target="_blank" rel="noopener">실시간 Q&amp;A</a>
-    </div>
+    <a class="hero-cta" href="https://forms.gle/CF2a8VEmbae3kibF7" target="_blank" rel="noopener">사전설문 제출하기 <span>→</span></a>
   </div>
 </section>
 
@@ -1003,23 +954,6 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  const navToggle = document.getElementById('navToggle');
-  const topnav = document.getElementById('topnav');
-  if(navToggle && topnav){
-    navToggle.addEventListener('click', ()=>{
-      const isOpen = topnav.classList.toggle('open');
-      navToggle.classList.toggle('open', isOpen);
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    topnav.querySelectorAll('a').forEach(link=>{
-      link.addEventListener('click', ()=>{
-        topnav.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
 </script>
 
 </body>
